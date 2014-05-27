@@ -2,6 +2,7 @@
     "name": "51systems/doctrine-encrypt-module",
     "description": "ZF2 Module for Doctrine2 field encryption",
     "type": "library",
+    "license": "MIT",
     "keywords": [
         "ZF2",
         "Zend",
