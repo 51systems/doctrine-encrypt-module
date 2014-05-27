@@ -1,0 +1,28 @@
+{
+    "name": "51systems/doctrine-encrypt-module",
+    "description": "ZF2 Module for Doctrine2 field encryption",
+    "type": "library",
+    "keywords": [
+        "ZF2",
+        "Zend",
+        "Doctrine"
+    ],
+    "homepage": "https://github.com/51systems/doctrine-encrypt-module",
+    "authors": [
+        {
+            "name": "Dustin Thomson",
+            "email": "dthomson@51systems.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "DoctrineEncryptModule": "src/"
+        },
+        "classmap" : ["Module.php"]
+    },
+    "bin": [
+    ]
+}
