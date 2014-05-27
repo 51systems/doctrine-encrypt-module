@@ -11,9 +11,28 @@ return array(
     'doctrine' => array (
         'encryption' => array (
             'orm_default' => array (
-                'reader' => 'Doctrine\Common\Annotations\Reader',
-                'adapter' => ''
+
+                //The adapter can be a reference to another service locator key, a Fully qualified class name
+                //or an anonymous function. However, it must implement \Zend\Crypt\BlockCipher or
+                //Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface
+                'adapter' => function() {
+                    $cipher = \Zend\Crypt\BlockCipher::factory('mcrypt');
+                    $cipher->setKey('Test Key');
+                    return $cipher;
+                },
+
+                //The reader will read encryption configuration information off of the entities
+                //You probably don't have to change this
+                'reader' => 'Doctrine\Common\Annotations\AnnotationReader',
             )
-        )
+        ),
+
+        'eventmanager' => array(
+            'orm_default' => array(
+                'subscribers' => array(
+                    'doctrine.encryption.orm_default'
+                ),
+            ),
+        ),
     )
 );

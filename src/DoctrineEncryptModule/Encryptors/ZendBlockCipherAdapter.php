@@ -4,18 +4,18 @@ namespace DoctrineEncryptModule\Encryptors;
 
 
 use Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface;
-use Zend\Crypt\Symmetric\SymmetricInterface;
+use Zend\Crypt\BlockCipher;
 
 /**
- * Provides a wrapper that allows classes implementing Zend\Crypt\Symmetric\SymmetricInterface
+ * Provides a wrapper that allows Zend Framework BlockCipher's to
  * to be used to encrypt doctrine fields.
  */
-class ZendSymmetricCryptAdapter implements EncryptorInterface
+class ZendBlockCipherAdapter implements EncryptorInterface
 {
-    /** @var SymmetricInterface */
+    /** @var BlockCipher */
     private $adapter;
 
-    public function __construct(SymmetricInterface $adapter)
+    public function __construct(BlockCipher $adapter)
     {
         $this->adapter = $adapter;
     }

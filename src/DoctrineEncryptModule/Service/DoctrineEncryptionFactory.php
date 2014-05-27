@@ -5,26 +5,19 @@ namespace DoctrineEncryptModule\Service;
 
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
+use DoctrineEncryptModule\Encryptors\ZendBlockCipherAdapter;
 use DoctrineEncryptModule\Encryptors\ZendSymmetricCryptAdapter;
 use DoctrineModule\Service\AbstractFactory;
 use Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface;
 use Reprovinci\DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber;
-use Zend\Crypt\Symmetric\SymmetricInterface;
+use Zend\Crypt\BlockCipher;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+/**
+ * Handles configuration of the DoctrineEncryptSubscriber
+ */
 class DoctrineEncryptionFactory extends AbstractFactory
 {
-
-    /**
-     * Get the class name of the options associated with this factory.
-     *
-     * @return string
-     */
-    public function getOptionsClass()
-    {
-        return 'DoctrineEncryptModule\Options\Encryption';
-    }
-
     /**
      * Create service
      *
@@ -39,10 +32,20 @@ class DoctrineEncryptionFactory extends AbstractFactory
         $reader = $this->createReader($options->getReader(), $sl);
         $adapter = $this->createAdapter($options->getAdapter(), $sl);
 
-        new DoctrineEncryptSubscriber(
+        return new DoctrineEncryptSubscriber(
             $reader,
             $adapter
         );
+    }
+
+    /**
+     * Get the class name of the options associated with this factory.
+     *
+     * @return string
+     */
+    public function getOptionsClass()
+    {
+        return 'DoctrineEncryptModule\Options\Encryption';
     }
 
     /**
@@ -72,8 +75,8 @@ class DoctrineEncryptionFactory extends AbstractFactory
     {
         $adapter = $this->hydrdateDefinition($adapter, $sl);
 
-        if ($adapter instanceof SymmetricInterface) {
-            $adapter = new ZendSymmetricCryptAdapter($adapter);
+        if ($adapter instanceof BlockCipher) {
+            $adapter = new ZendBlockCipherAdapter($adapter);
         }
 
         if (!$adapter instanceof EncryptorInterface) {
