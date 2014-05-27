@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.3",
-        "doctrine/doctrine-orm-module": "0.*",
+        "doctrine/doctrine-module": "0.*",
         "reprovinci/doctrine-encrypt" : "~3.0"
     },
     "autoload": {
