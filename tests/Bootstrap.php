@@ -36,7 +36,7 @@ if (! isset($loader)) {
 }
 
 /* @var $loader \Composer\Autoload\ClassLoader */
-$loader->add('DoctrineModuleTest\\', __DIR__);
+$loader->add('DoctrineEncryptModuleTest\\', __DIR__);
 
 if (file_exists(__DIR__ . '/TestConfiguration.php')) {
     $config = require __DIR__ . '/TestConfiguration.php';
