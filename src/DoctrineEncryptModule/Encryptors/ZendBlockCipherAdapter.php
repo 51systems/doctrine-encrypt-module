@@ -25,6 +25,10 @@ class ZendBlockCipherAdapter implements EncryptorInterface
      */
     public function encrypt($data)
     {
+        if (!is_string($data) || empty($data)) {
+            return $data;
+        }
+
         return $this->adapter->encrypt($data);
     }
 
@@ -33,6 +37,10 @@ class ZendBlockCipherAdapter implements EncryptorInterface
      */
     public function decrypt($data)
     {
+        if (empty($data)) {
+            return $data;
+        }
+
         return $this->adapter->decrypt($data);
     }
 }
