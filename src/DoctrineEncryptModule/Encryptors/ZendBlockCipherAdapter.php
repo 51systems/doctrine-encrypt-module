@@ -3,7 +3,7 @@
 namespace DoctrineEncryptModule\Encryptors;
 
 
-use Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface;
+use DoctrineEncrypt\Encryptors\EncryptorInterface;
 use Zend\Crypt\BlockCipher;
 
 /**

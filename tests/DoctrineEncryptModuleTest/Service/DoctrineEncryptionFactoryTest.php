@@ -4,8 +4,8 @@ namespace DoctrineEncryptModuleTest\Service;
 
 use DoctrineEncryptModule\Service\DoctrineEncryptionFactory;
 use PHPUnit_Framework_TestCase as BaseTestCase;
-use Reprovinci\DoctrineEncrypt\Encryptors\AES256Encryptor;
-use Reprovinci\DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber;
+use DoctrineEncrypt\Encryptors\AES256Encryptor;
+use DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber;
 use Zend\ServiceManager\ServiceManager;
 use DoctrineModuleTest\Service\TestAsset\DummyEventSubscriber;
 
@@ -37,6 +37,6 @@ class DoctrineEncryptionFactoryTest extends BaseTestCase
 
         /** @var DoctrineEncryptSubscriber $encryptSubscriber */
         $encryptSubscriber = $factory->createService($serviceManager);
-        $this->assertInstanceOf('\Reprovinci\DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber', $encryptSubscriber);
+        $this->assertInstanceOf('\DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber', $encryptSubscriber);
     }
 }

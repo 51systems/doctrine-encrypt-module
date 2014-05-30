@@ -8,8 +8,8 @@ use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use DoctrineEncryptModule\Encryptors\ZendBlockCipherAdapter;
 use DoctrineEncryptModule\Encryptors\ZendSymmetricCryptAdapter;
 use DoctrineModule\Service\AbstractFactory;
-use Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface;
-use Reprovinci\DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber;
+use DoctrineEncrypt\Encryptors\EncryptorInterface;
+use DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber;
 use Zend\Crypt\BlockCipher;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -82,7 +82,7 @@ class DoctrineEncryptionFactory extends AbstractFactory
         if (!$adapter instanceof EncryptorInterface) {
             throw new InvalidArgumentException(
                 'Invalid encryptor provided, must be a service name, '
-                . 'class name, an instance, or method returning a Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface'
+                . 'class name, an instance, or method returning a DoctrineEncrypt\Encryptors\EncryptorInterface'
             );
         }
 
