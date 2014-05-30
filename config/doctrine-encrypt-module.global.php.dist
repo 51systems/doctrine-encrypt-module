@@ -14,7 +14,7 @@ return array(
 
                 //The adapter can be a reference to another service locator key, a Fully qualified class name
                 //or an anonymous function. However, it must implement \Zend\Crypt\BlockCipher or
-                //Reprovinci\DoctrineEncrypt\Encryptors\EncryptorInterface
+                //DoctrineEncrypt\Encryptors\EncryptorInterface
                 'adapter' => function() {
                     $cipher = \Zend\Crypt\BlockCipher::factory('mcrypt');
                     $cipher->setKey('Test Key');
