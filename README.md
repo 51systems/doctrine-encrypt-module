@@ -21,6 +21,3 @@ or FQN's are also acceptable.
 
 ## Usage
 See https://github.com/51systems/doctrine-encrypt
-
-
-

@@ -6,7 +6,8 @@
     "keywords": [
         "ZF2",
         "Zend",
-        "Doctrine"
+        "Doctrine",
+        "Encryption"
     ],
     "homepage": "https://github.com/51systems/doctrine-encrypt-module",
     "authors": [
@@ -19,7 +20,7 @@
         "php": ">=5.3",
         "zendframework/zend-crypt": ">=2.2",
         "doctrine/doctrine-module": "0.*",
-        "51systems/doctrine-encrypt" : "dev-master"
+        "51systems/doctrine-encrypt" : "~4.0"
     },
     "autoload": {
         "psr-0": {

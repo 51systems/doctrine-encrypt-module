@@ -26,9 +26,9 @@ class DoctrineEncryptionFactoryTest extends BaseTestCase
                     'encryption' => array(
                         $name => array(
                             'reader' => '\Doctrine\Common\Annotations\AnnotationReader',
-                            'adapter' => function() {
-                                    return new AES256Encryptor('test');
-                                }
+                            'adapter' => function () {
+                                return new AES256Encryptor('test');
+                            },
                         ),
                     ),
                 ),

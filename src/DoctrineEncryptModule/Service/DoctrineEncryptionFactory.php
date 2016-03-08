@@ -2,11 +2,9 @@
 
 namespace DoctrineEncryptModule\Service;
 
-
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use DoctrineEncryptModule\Encryptors\ZendBlockCipherAdapter;
-use DoctrineEncryptModule\Encryptors\ZendSymmetricCryptAdapter;
 use DoctrineModule\Service\AbstractFactory;
 use DoctrineEncrypt\Encryptors\EncryptorInterface;
 use DoctrineEncrypt\Subscribers\DoctrineEncryptSubscriber;
@@ -22,12 +20,12 @@ class DoctrineEncryptionFactory extends AbstractFactory
      * Create service
      *
      * @param ServiceLocatorInterface $sl
-     * @return mixed
+     * @return DoctrineEncryptSubscriber
      */
     public function createService(ServiceLocatorInterface $sl)
     {
         /** @var \DoctrineEncryptModule\Options\Encryption $options */
-        $options      = $this->getOptions($sl, 'encryption');
+        $options = $this->getOptions($sl, 'encryption');
 
         $reader = $this->createReader($options->getReader(), $sl);
         $adapter = $this->createAdapter($options->getAdapter(), $sl);
@@ -59,7 +57,9 @@ class DoctrineEncryptionFactory extends AbstractFactory
         $reader = $this->hydrdateDefinition($reader, $sl);
 
         if (!$reader instanceof Reader) {
-            throw new InvalidArgumentException('Invalid reader provided. Must implement \Doctrine\Common\Annotations\Reader');
+            throw new InvalidArgumentException(
+                'Invalid reader provided. Must implement ' . Reader::class
+            );
         }
 
         return $reader;
@@ -68,7 +68,7 @@ class DoctrineEncryptionFactory extends AbstractFactory
     /**
      * @param $adapter
      * @param ServiceLocatorInterface $sl
-     * @return \DoctrineEncryptModule\Encryptors\ZendSymmetricCryptAdapter
+     * @return EncryptorInterface
      * @throws \Doctrine\Common\Proxy\Exception\InvalidArgumentException
      */
     private function createAdapter($adapter, ServiceLocatorInterface $sl)
@@ -103,7 +103,7 @@ class DoctrineEncryptionFactory extends AbstractFactory
             } elseif (class_exists($value)) {
                 $value = new $value();
             }
-        } else if (is_callable($value)) {
+        } elseif (is_callable($value)) {
             $value = $value();
         }
 

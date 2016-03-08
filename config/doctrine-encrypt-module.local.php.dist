@@ -1,0 +1,20 @@
+<?php
+/**
+ * Doctrine-Encrypt-Module Configuration
+ *
+ * If you have a ./config/autoload/ directory set up for your project, you can
+ * drop this config file in it and change the values as you wish.
+ *
+ * You may want to define a different file for development / production
+ */
+
+// This file should not be included into your VCS!
+
+return array(
+    'doctrine' => array(
+        'encryption' => array(
+            'key' => '',
+            'salt' => '',
+        ),
+    ),
+);
