@@ -12,14 +12,21 @@ return array(
         'encryption' => array(
             'orm_default' => array(
 
-                //The adapter can be a reference to another service locator key, a Fully qualified class name
-                //or an anonymous function. However, it must implement \Zend\Crypt\BlockCipher or
-                //DoctrineEncrypt\Encryptors\EncryptorInterface
-                # 'adapter' => \DoctrineEncryptModule\Factory\McryptAdapter::class,
+                /**
+                 * The adapter can be a reference to another service locator key or a Fully qualified class name.
+                 * However, it must implement \Zend\Crypt\BlockCipher or
+                 * DoctrineEncrypt\Encryptors\EncryptorInterface
+                 *
+                 * @see \Zend\Crypt\BlockCipher
+                 * @see \DoctrineEncrypt\Encryptors\EncryptorInterface
+                 */
+                //'adapter' => \DoctrineEncryptModule\Factory\McryptAdapter::class,
 
-                //The reader will read encryption configuration information off of the entities
-                //You probably don't have to change this
-                # 'reader' => 'Doctrine\Common\Annotations\AnnotationReader',
+                /**
+                 * The reader will read encryption configuration information off of the entities
+                 * You probably don't have to change this
+                 */
+                //'reader' => 'Doctrine\Common\Annotations\AnnotationReader',
             ),
         ),
 

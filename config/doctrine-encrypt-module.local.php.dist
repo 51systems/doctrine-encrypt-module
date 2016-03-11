@@ -13,7 +13,17 @@
 return array(
     'doctrine' => array(
         'encryption' => array(
+            /**
+             * The encryption key, insert here a randomly created key
+             */
             'key' => '',
+
+            /**
+             * A encryption salt. See mcrypt_get_iv_size to know the min length of this string! Otherwise a exception
+             * will be thrown.
+             *
+             * @link http://php.net/manual/en/function.mcrypt-get-iv-size.php
+             */
             'salt' => '',
         ),
     ),
