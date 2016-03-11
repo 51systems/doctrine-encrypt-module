@@ -18,6 +18,14 @@ return array(
                 'reader' => 'Doctrine\Common\Annotations\AnnotationReader',
             ),
         ),
+
+        'eventmanager' => array(
+            'orm_default' => array(
+                'subscribers' => array(
+                    'doctrine.encryption.orm_default',
+                ),
+            ),
+        ),
     ),
 
     'service_manager' => array(
