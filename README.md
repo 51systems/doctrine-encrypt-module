@@ -12,7 +12,15 @@ Add `51systems/doctrine-encrypt-module` to your composer manifest.
 ```
 
 ## Configuration
-Copy `doctrine-encrypt-module.global.php.dist` out of the config/ directory, rename it to `doctrine-encrypt-module.global.php`
+
+Copy the file `config/doctrine-encrypt-module.local.php.dist` to your `config/autoload/` directory
+and rename it to `config/doctrine-encrypt-module.local.php`.
+Generate a encryption key and a salt and put it into your new local config file.
+
+### Optional
+
+If you  want to change the encryption algorithm or the annotation reader copy 
+`doctrine-encrypt-module.global.php.dist` out of the config/ directory, rename it to `doctrine-encrypt-module.global.php`
 and place it in your application config folder.
 
 Modify the adapter anonymous to return the desired class to use for encryption. The returned class must either be a `Zend\Crypt\BlockCipher`
@@ -21,6 +29,3 @@ or FQN's are also acceptable.
 
 ## Usage
 See https://github.com/51systems/doctrine-encrypt
-
-
-

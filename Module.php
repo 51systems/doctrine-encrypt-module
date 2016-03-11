@@ -2,13 +2,10 @@
 
 namespace DoctrineEncryptModule;
 
-
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
-class Module implements
-    ConfigProviderInterface
+class Module implements ConfigProviderInterface
 {
-
     /**
      * Returns configuration to merge with application configuration
      *

@@ -2,7 +2,6 @@
 
 namespace DoctrineEncryptModule\Encryptors;
 
-
 use DoctrineEncrypt\Encryptors\EncryptorInterface;
 use Zend\Crypt\BlockCipher;
 

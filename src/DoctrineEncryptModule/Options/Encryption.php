@@ -2,7 +2,6 @@
 
 namespace DoctrineEncryptModule\Options;
 
-
 use Doctrine\Common\Annotations\Reader;
 use Zend\Stdlib\AbstractOptions;
 
